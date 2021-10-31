@@ -16,11 +16,8 @@ func TestGetTime(t *testing.T) {
 }
 
 func TestCheckIfRSSUpdated(t *testing.T) {
-	updated, err := CheckIfRSSUpdated()
+	_, err := CheckIfRSSUpdated()
 	if err != nil {
-		t.Error()
-	}
-	if updated != true {
-		t.Error()
+		t.Errorf("could not retrieve RSS")
 	}
 }
