@@ -33,9 +33,9 @@ func CheckIfRSSUpdated() (bool, error) {
 		return false, err
 	}
 
-        if feed.Items == nil {
-            return false, nil
-        }
+	if feed.Items == nil {
+		return false, nil
+	}
 
 	if feed.Items[0].PublishedParsed.Before(t) {
 		return false, nil
