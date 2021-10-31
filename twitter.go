@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 
@@ -25,10 +24,10 @@ func Tweet(message string) {
 	tweet, resp, err := client.Statuses.Update(message, nil)
 
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("Failed to tweet: %v\n", err)
 	}
 
 	defer resp.Body.Close()
 
-	fmt.Println(tweet.Text)
+	log.Println(tweet.Text)
 }
