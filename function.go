@@ -1,10 +1,13 @@
-package main
+package fugoblog
 
-import "log"
+import (
+	"log"
+	"net/http"
+)
 
 const tweetText = "フゴブロ更新！？"
 
-func main() {
+func Handler(_ http.ResponseWriter, _ *http.Request) {
 	r, err := CheckIfRSSUpdated()
 	if err != nil {
 		log.Fatalln(err)
