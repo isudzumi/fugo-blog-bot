@@ -1,6 +1,6 @@
 module github.com/isudzumi/fugo-blog-bot
 
-go 1.17
+go 1.13
 
 require (
 	github.com/dghubble/go-twitter v0.0.0-20211002212826-ad02880e616b
