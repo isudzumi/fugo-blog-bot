@@ -25,9 +25,7 @@ jobs:
       - name: Cloud Functions Deploy
         uses: google-github-actions/deploy-cloud-functions@main
         with:
-          # Optional service account key to use for authentication to GCP. This should be the JSON
-      formatted private key which can be exported from the Cloud Console. The
-      value can be raw or base64-encoded.
+          # Optional service account key to use for authentication to GCP. This should be the JSON formatted private key which can be exported from the Cloud Console. The value can be raw or base64-encoded.
           credentials: ${{ secrets.GCP_SA_KEY }}
           # Name of the Cloud Function.
           name: ${{ env.PROJECT_NAME }}
