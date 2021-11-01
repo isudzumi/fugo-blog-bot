@@ -42,6 +42,6 @@ jobs:
           # Runtime to use for the function.
           runtime: go113
           # Specifies which action should trigger the function.
-          event_trigger_type: providers/cloud.pubsub/eventTypes/topic.publish
+          event_trigger_type: google.pubsub.topic.publish
           # Specifies which resource from eventTrigger is observed.
           event_trigger_resource: projects/${{ secrets.GCP_PROJECT }}/topics/${{ env.PROJECT_NAME }}
