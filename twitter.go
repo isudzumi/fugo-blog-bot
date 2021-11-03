@@ -1,7 +1,6 @@
 package fugoblog
 
 import (
-	"log"
 	"os"
 
 	"github.com/dghubble/go-twitter/twitter"
