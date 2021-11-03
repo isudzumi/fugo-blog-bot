@@ -15,7 +15,7 @@ var (
 	accessTokenSecret = os.Getenv("TWITTER_ACCESS_TOKEN_SECRET")
 )
 
-func Tweet(message string) {
+func Tweet(message string) (*twitter.Tweet, error) {
 	config := oauth1.NewConfig(consumerKey, consumerSecret)
 	token := oauth1.NewToken(accessToken, accessTokenSecret)
 	httpClient := config.Client(oauth1.NoContext, token)
@@ -23,11 +23,11 @@ func Tweet(message string) {
 
 	tweet, resp, err := client.Statuses.Update(message, nil)
 
-	if err != nil {
-		log.Fatalf("Failed to tweet: %v\n", err)
-	}
-
 	defer resp.Body.Close()
 
-	log.Println(tweet.Text)
+	if err != nil {
+		return nil, err
+	}
+
+	return tweet, nil
 }

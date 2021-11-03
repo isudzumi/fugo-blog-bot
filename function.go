@@ -15,5 +15,13 @@ func Handler(_ http.ResponseWriter, _ *http.Request) {
 	if !r {
 		return
 	}
-	Tweet(tweetText)
+
+	res, err := Tweet(tweetText)
+
+	if err != nil {
+		log.Fatalf("Failed to tweet: %v\n", err)
+		return
+	}
+
+	log.Println(res.Text)
 }
