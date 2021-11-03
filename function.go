@@ -10,7 +10,7 @@ const tweetText = "フゴブロ更新！？"
 func Handler(_ http.ResponseWriter, _ *http.Request) {
 	r, err := CheckIfRSSUpdated()
 	if err != nil {
-		log.Fatalln(err)
+		log.Printf(`{ "message": "%v", "severity": "error" }`, err)
 	}
 	if !r {
 		return
@@ -19,9 +19,9 @@ func Handler(_ http.ResponseWriter, _ *http.Request) {
 	res, err := Tweet(tweetText)
 
 	if err != nil {
-		log.Fatalf("Failed to tweet: %v\n", err)
+		log.Printf(`{ "message": "%v", "severity": "error" }`, err)
 		return
 	}
 
-	log.Println(res.Text)
+	log.Printf(`{ "message": "Successfully tweeted: %s", "severity": "info" }`, res.Text)
 }
