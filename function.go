@@ -16,12 +16,12 @@ func Handler(_ http.ResponseWriter, _ *http.Request) {
 		return
 	}
 
-	res, err := Tweet(tweetText)
+	tweet, err := Tweet(tweetText)
 
 	if err != nil {
 		log.Printf(`{ "message": "%v", "severity": "error" }`, err)
 		return
 	}
 
-	log.Printf(`{ "message": "Successfully tweeted: %s", "severity": "info" }`, res.Text)
+	log.Printf(`{ "message": "Successfully tweeted: %s", "severity": "info" }`, tweet.Data.Text)
 }
